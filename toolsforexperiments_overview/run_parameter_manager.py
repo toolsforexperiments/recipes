@@ -23,7 +23,6 @@ def main():
             'params'
         )
         if os.path.exists("parameters.json"):
-            print('trying to load')
             param_mgr.fromFile("parameters.json")
 
     # create the GUI for the parameter manager
