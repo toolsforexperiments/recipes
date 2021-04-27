@@ -1,4 +1,7 @@
-from instrumentserver import QtWidgets, InstrumentClient
+import os
+
+from instrumentserver import QtWidgets
+from instrumentserver.client import Client as InstrumentClient
 from instrumentserver.gui import widgetDialog
 from instrumentserver.gui.instruments import ParameterManagerGui
 
@@ -19,6 +22,9 @@ def main():
             'instrumentserver.params.ParameterManager',
             'params'
         )
+        if os.path.exists("parameters.json"):
+            print('trying to load')
+            param_mgr.fromFile("parameters.json")
 
     # create the GUI for the parameter manager
     _ = widgetDialog(ParameterManagerGui(param_mgr))
